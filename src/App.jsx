@@ -10,8 +10,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import ProfilesList from './pages/ProfilesList.jsx';
+import ProfilesList from './pages/ProfilesList';
 import Reports from './pages/Reports';
+import UnsupportedRoute from'./pages/UnsupportedRoute';
 
 Amplify.configure(config);
 
@@ -40,6 +41,8 @@ function App() {
       </Navbar>
     <div>
       <Routes>
+        <Route path="/*" element={<UnsupportedRoute/>}/>
+        <Route exact path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/profiles" element={<ProfilesList/>}/>
         <Route path="/reports" element={<Reports/>}/>
