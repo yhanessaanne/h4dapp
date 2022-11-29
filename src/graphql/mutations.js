@@ -1,48 +1,69 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createNote = /* GraphQL */ `
-  mutation CreateNote(
-    $input: CreateNoteInput!
-    $condition: ModelNoteConditionInput
+export const createServiceman = /* GraphQL */ `
+  mutation CreateServiceman(
+    $input: CreateServicemanInput!
+    $condition: ModelServicemanConditionInput
   ) {
-    createNote(input: $input, condition: $condition) {
+    createServiceman(input: $input, condition: $condition) {
       id
-      name
-      description
-      image
+      rank
+      last
+      first
+      position
+      afsc
+      status
+      email
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
-export const updateNote = /* GraphQL */ `
-  mutation UpdateNote(
-    $input: UpdateNoteInput!
-    $condition: ModelNoteConditionInput
+export const updateServiceman = /* GraphQL */ `
+  mutation UpdateServiceman(
+    $input: UpdateServicemanInput!
+    $condition: ModelServicemanConditionInput
   ) {
-    updateNote(input: $input, condition: $condition) {
+    updateServiceman(input: $input, condition: $condition) {
       id
-      name
-      description
-      image
+      rank
+      last
+      first
+      position
+      afsc
+      status
+      email
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
-export const deleteNote = /* GraphQL */ `
-  mutation DeleteNote(
-    $input: DeleteNoteInput!
-    $condition: ModelNoteConditionInput
+export const deleteServiceman = /* GraphQL */ `
+  mutation DeleteServiceman(
+    $input: DeleteServicemanInput!
+    $condition: ModelServicemanConditionInput
   ) {
-    deleteNote(input: $input, condition: $condition) {
+    deleteServiceman(input: $input, condition: $condition) {
       id
-      name
-      description
-      image
+      rank
+      last
+      first
+      position
+      afsc
+      status
+      email
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
