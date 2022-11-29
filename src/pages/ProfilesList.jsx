@@ -4,6 +4,7 @@ import { View, CheckboxField, Table, TableRow, TableCell, TableHead, TableBody, 
 import { listServicemen } from '../graphql/queries'
 import { API, graphqlOperation } from "aws-amplify";
 import React, { useEffect, useState } from "react";
+import {   deleteServiceman as deleteServicemanMutation} from '../graphql/mutations';
 import { useNavigate } from "react-router-dom";
 import swal from 'sweetalert';
 
@@ -30,6 +31,16 @@ function ProfilesList() {
     const navigateToProfile = (ServicememberID) => {
       navigate(`/profile/${ServicememberID}`);
     };
+
+    async function deleteServiceman({ id, last }) {
+      const newServiceman = Servicemen.filter((Serviceman) => Serviceman.id !== id);
+      setServiceman(newServiceman);
+      await Storage.remove(last);
+      await API.graphql({
+        query: deleteServicemanMutation,
+        variables: { input: { id } },
+      });
+    }
 
   return (
     <View className="App">
@@ -108,7 +119,7 @@ function ProfilesList() {
                   variation="link"
                   size="small"
                   loadingText=""
-                  onClick={() => navigateToProfile(Servicemen.id)}
+                  onClick={() => deleteServiceman(Servicemen)}
                   ariaLabel=""
                 >View/Edit</Button>
                 </TableCell>
