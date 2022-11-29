@@ -4,7 +4,6 @@ import { View, CheckboxField, Table, TableRow, TableCell, TableHead, TableBody, 
 import { listServicemen } from '../graphql/queries'
 import { API, graphqlOperation } from "aws-amplify";
 import React, { useEffect, useState } from "react";
-import {   deleteServiceman as deleteServicemanMutation} from '../graphql/mutations';
 import { useNavigate } from "react-router-dom";
 import swal from 'sweetalert';
 
