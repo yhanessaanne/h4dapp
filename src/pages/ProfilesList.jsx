@@ -32,16 +32,6 @@ function ProfilesList() {
       navigate(`/profile/${ServicememberID}`);
     };
 
-    async function deleteServiceman({ id, last }) {
-      const newServiceman = Servicemen.filter((Serviceman) => Serviceman.id !== id);
-      setServiceman(newServiceman);
-      await Storage.remove(last);
-      await API.graphql({
-        query: deleteServicemanMutation,
-        variables: { input: { id } },
-      });
-    }
-
   return (
     <View className="App">
       <SearchField
@@ -119,7 +109,7 @@ function ProfilesList() {
                   variation="link"
                   size="small"
                   loadingText=""
-                  onClick={() => deleteServiceman(Servicemen)}
+                  onClick={() => navigateToProfile(Servicemen.id)}
                   ariaLabel=""
                 >View/Edit</Button>
                 </TableCell>
