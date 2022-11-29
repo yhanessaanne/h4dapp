@@ -2,6 +2,11 @@
 import { initSchema } from '@aws-amplify/datastore';
 import { schema } from './schema';
 
+const TrainingStatusEnum = {
+  "DONE": "DONE",
+  "MISSING": "MISSING"
+};
+
 const RankEum = {
   "AB": "AB",
   "AMN": "AMN",
@@ -26,9 +31,12 @@ const RankEum = {
   "GAF": "GAF"
 };
 
-const { Serviceman } = initSchema(schema);
+const { TrainingCompletionStatus, Ancillary, Serviceman } = initSchema(schema);
 
 export {
+  TrainingCompletionStatus,
+  Ancillary,
   Serviceman,
+  TrainingStatusEnum,
   RankEum
 };

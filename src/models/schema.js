@@ -1,5 +1,189 @@
 export const schema = {
     "models": {
+        "TrainingCompletionStatus": {
+            "name": "TrainingCompletionStatus",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "DateCompleted": {
+                    "name": "DateCompleted",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "DateDue": {
+                    "name": "DateDue",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Status": {
+                    "name": "Status",
+                    "isArray": false,
+                    "type": {
+                        "enum": "TrainingStatusEnum"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Ancillary": {
+                    "name": "Ancillary",
+                    "isArray": false,
+                    "type": {
+                        "model": "Ancillary"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "HAS_ONE",
+                        "associatedWith": [
+                            "id"
+                        ],
+                        "targetNames": [
+                            "trainingCompletionStatusAncillaryId"
+                        ]
+                    }
+                },
+                "Serviceman": {
+                    "name": "Serviceman",
+                    "isArray": false,
+                    "type": {
+                        "model": "Serviceman"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "HAS_ONE",
+                        "associatedWith": [
+                            "id"
+                        ],
+                        "targetNames": [
+                            "trainingCompletionStatusServicemanId"
+                        ]
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "trainingCompletionStatusAncillaryId": {
+                    "name": "trainingCompletionStatusAncillaryId",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "trainingCompletionStatusServicemanId": {
+                    "name": "trainingCompletionStatusServicemanId",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            },
+            "syncable": true,
+            "pluralName": "TrainingCompletionStatuses",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Ancillary": {
+            "name": "Ancillary",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "AncillaryTrainingName": {
+                    "name": "AncillaryTrainingName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Ancillaries",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Serviceman": {
             "name": "Serviceman",
             "fields": {
@@ -105,6 +289,13 @@ export const schema = {
         }
     },
     "enums": {
+        "TrainingStatusEnum": {
+            "name": "TrainingStatusEnum",
+            "values": [
+                "DONE",
+                "MISSING"
+            ]
+        },
         "RankEum": {
             "name": "RankEum",
             "values": [
@@ -134,5 +325,5 @@ export const schema = {
     },
     "nonModels": {},
     "codegenVersion": "3.2.0",
-    "version": "4e2318e6d9258b1b8e488cd4460154ba"
+    "version": "0e29b0e6835c6ba903345cf03fc2ec80"
 };

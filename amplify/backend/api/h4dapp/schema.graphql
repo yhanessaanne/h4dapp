@@ -1,3 +1,22 @@
+enum TrainingStatusEnum {
+  DONE
+  MISSING
+}
+
+type TrainingCompletionStatus @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  DateCompleted: AWSDate
+  DateDue: AWSDate
+  Status: TrainingStatusEnum
+  Ancillary: Ancillary @hasOne
+  Serviceman: Serviceman @hasOne
+}
+
+type Ancillary @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  AncillaryTrainingName: String!
+}
+
 enum RankEum {
   AB
   AMN

@@ -1,4 +1,11 @@
 import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier } from "@aws-amplify/datastore";
+// @ts-ignore
+import { LazyLoading, LazyLoadingDisabled, AsyncItem } from "@aws-amplify/datastore";
+
+export enum TrainingStatusEnum {
+  DONE = "DONE",
+  MISSING = "MISSING"
+}
 
 export enum RankEum {
   AB = "AB",
@@ -25,6 +32,74 @@ export enum RankEum {
 }
 
 
+
+type EagerTrainingCompletionStatus = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<TrainingCompletionStatus, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly DateCompleted?: string | null;
+  readonly DateDue?: string | null;
+  readonly Status?: TrainingStatusEnum | keyof typeof TrainingStatusEnum | null;
+  readonly Ancillary?: Ancillary | null;
+  readonly Serviceman?: Serviceman | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  readonly trainingCompletionStatusAncillaryId?: string | null;
+  readonly trainingCompletionStatusServicemanId?: string | null;
+}
+
+type LazyTrainingCompletionStatus = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<TrainingCompletionStatus, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly DateCompleted?: string | null;
+  readonly DateDue?: string | null;
+  readonly Status?: TrainingStatusEnum | keyof typeof TrainingStatusEnum | null;
+  readonly Ancillary: AsyncItem<Ancillary | undefined>;
+  readonly Serviceman: AsyncItem<Serviceman | undefined>;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  readonly trainingCompletionStatusAncillaryId?: string | null;
+  readonly trainingCompletionStatusServicemanId?: string | null;
+}
+
+export declare type TrainingCompletionStatus = LazyLoading extends LazyLoadingDisabled ? EagerTrainingCompletionStatus : LazyTrainingCompletionStatus
+
+export declare const TrainingCompletionStatus: (new (init: ModelInit<TrainingCompletionStatus>) => TrainingCompletionStatus) & {
+  copyOf(source: TrainingCompletionStatus, mutator: (draft: MutableModel<TrainingCompletionStatus>) => MutableModel<TrainingCompletionStatus> | void): TrainingCompletionStatus;
+}
+
+type EagerAncillary = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Ancillary, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly AncillaryTrainingName: string;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyAncillary = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Ancillary, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly AncillaryTrainingName: string;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Ancillary = LazyLoading extends LazyLoadingDisabled ? EagerAncillary : LazyAncillary
+
+export declare const Ancillary: (new (init: ModelInit<Ancillary>) => Ancillary) & {
+  copyOf(source: Ancillary, mutator: (draft: MutableModel<Ancillary>) => MutableModel<Ancillary> | void): Ancillary;
+}
 
 type EagerServiceman = {
   readonly [__modelMeta__]: {
