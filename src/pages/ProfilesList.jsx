@@ -1,6 +1,6 @@
 import "@aws-amplify/ui-react/styles.css";
 import "../App.css"
-import { View, CheckboxField, Table, TableRow, TableCell, TableHead, TableBody, Button, Card} from "@aws-amplify/ui-react";
+import { View, CheckboxField, Table, TableRow, TableCell, TableHead, TableBody, Button, Card, SearchField} from "@aws-amplify/ui-react";
 import { listServicemen } from '../graphql/queries'
 import { API, graphqlOperation } from "aws-amplify";
 import React, { useEffect, useState } from "react";
@@ -30,9 +30,13 @@ function ProfilesList() {
     const navigateToProfile = (ServicememberID) => {
       navigate(`/profile/${ServicememberID}`);
     };
-    
+
   return (
     <View className="App">
+      <SearchField
+        label="Search"
+        placeholder="Search here..."
+      />
       <Card>
         <Button
           variation="link"

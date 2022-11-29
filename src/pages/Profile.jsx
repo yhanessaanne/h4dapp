@@ -43,6 +43,7 @@ function Profile() {
               <Card>
                 <Heading level={2}>{`${Servicemember.rank} ${Servicemember.first} ${Servicemember.last}`}</Heading> 
                 <Heading level={4}>{`AFSC: ${Servicemember.afsc}`}</Heading> 
+                <Heading level={4}>{`Position: ${Servicemember.position}`}</Heading> 
               </Card>
             </div> 
             <div className="cardbuttons">
