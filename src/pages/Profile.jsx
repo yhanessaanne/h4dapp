@@ -5,6 +5,8 @@ import { getServiceman } from '../graphql/queries'
 import { API, graphqlOperation } from "aws-amplify";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 function Profile() {
 
@@ -26,7 +28,10 @@ function Profile() {
           console.log('error on fetching airman', error);
       }
   }
-
+  const navigate = useNavigate();
+  const navigateToCertificates = (ServicememberID) => {
+    navigate(`/certificates/${ServicememberID}`);
+  }
     console.log(Servicemember);
     return (
       <div>
@@ -66,7 +71,7 @@ function Profile() {
                   variation="link"
                   size="small"
                   loadingText=""
-                  onClick={() => alert('this will lead to the airmans page of certificates to upload and view')}
+                  onClick={() => navigateToCertificates(Servicemember.id)}
                   ariaLabel=""
                   >Certificates</Button>
               </Card>

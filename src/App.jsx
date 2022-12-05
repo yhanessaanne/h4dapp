@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import ProfilesList from './pages/ProfilesList';
 import Reports from './pages/Reports';
+import Certificates from'./pages/Certificates';
 import UnsupportedRoute from'./pages/UnsupportedRoute';
 
 Amplify.configure(config);
@@ -47,6 +48,7 @@ function App() {
         <Route path="/profiles" element={<ProfilesList/>}/>
         <Route path="/reports" element={<Reports/>}/>
         <Route path="/profile/:id" element={<Profile/>}/>
+        <Route path="/certificates/:id" element={<Certificates/>}/>
       </Routes>
     </div>
     </div>
