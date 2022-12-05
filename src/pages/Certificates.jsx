@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import { Card, Heading, View, Button, TableHead, TableCell, Table, TableRow, TableBody, Image } from '@aws-amplify/ui-react';
+import { Card, Heading, View, Button, TableCell, Table, TableRow, TableBody, Image } from '@aws-amplify/ui-react';
 import { getServiceman } from '../graphql/queries'
 import { API, graphqlOperation } from "aws-amplify";
 import { useEffect, useState } from "react";
