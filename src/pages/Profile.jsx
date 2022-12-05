@@ -71,7 +71,7 @@ function Profile() {
                   variation="link"
                   size="small"
                   loadingText=""
-                  onClick={() => navigateToCertificates(Servicemember.id)}
+                  //onClick={() => navigateToCertificates(Servicemember.id)}
                   ariaLabel=""
                   >Certificates</Button>
               </Card>
