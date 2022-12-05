@@ -1,11 +1,11 @@
 import React from 'react';
 import '../App.css';
-import { Card, Heading, View, Button, TableCell, Table, TableRow, TableBody, Image } from '@aws-amplify/ui-react';
+import { Card, Heading, View, Button, TableHead, TableCell, Table, TableRow, TableBody, Image } from '@aws-amplify/ui-react';
 import { getServiceman } from '../graphql/queries'
 import { API, graphqlOperation } from "aws-amplify";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-function Profile() {
+function Certificates() {
 
   // grab servicemember id from url
   const ServicememberID = useParams().id;
@@ -121,8 +121,5 @@ function Profile() {
       </div>
     );
 }
-  
-export default Profile;
 
-        
-      
+export default Certificates;
